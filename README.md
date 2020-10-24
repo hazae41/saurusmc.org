@@ -1,4 +1,4 @@
-# New Project
+# saurusmc.org
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
