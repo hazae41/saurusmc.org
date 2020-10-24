@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Avatar, Box, createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core"
 import { Dark, Light } from './Themes';
@@ -8,6 +8,8 @@ import discord from "../assets/discord.png"
 import patreon from "../assets/patreon.png"
 
 import { BoldTypo, FastTooltip, FlatFab } from './Material';
+import type { Openable, Ref } from './React';
+import { PluginsDialog } from './Plugins';
 
 export const Bar = () => (
   <Box
@@ -21,27 +23,30 @@ export const Bar = () => (
       children="Saurus" />
     <Box flex={1} />
     <FastTooltip arrow title="Discord">
-      <FlatFab
-        size="medium"
-        href="https://discord.gg/HNgMKvV"
-        target="_blank"
-        children={<Avatar src={discord} />} />
+      <a target="_blank"
+        href="https://discord.gg/HNgMKvV">
+        <FlatFab
+          size="medium"
+          children={<Avatar src={discord} />} />
+      </a>
     </FastTooltip>
     <Box width={8} />
     <FastTooltip arrow title="GitHub">
-      <FlatFab
-        size="medium"
-        href="https://github.com/saurusmc"
-        target="_blank"
-        children={<Avatar src={github} />} />
+      <a target="_blank"
+        href="https://github.com/saurusmc">
+        <FlatFab
+          size="medium"
+          children={<Avatar src={github} />} />
+      </a>
     </FastTooltip>
     <Box width={8} />
     <FastTooltip arrow title="Patreon">
-      <FlatFab
-        size="medium"
-        href="https://patreon.com/hazae41"
-        target="_blank"
-        children={<Avatar src={patreon} />} />
+      <a target="_blank"
+        href="https://patreon.com/hazae41">
+        <FlatFab
+          size="medium"
+          children={<Avatar src={patreon} />} />
+      </a>
     </FastTooltip>
   </Box>
 )
@@ -53,7 +58,7 @@ export const Texts = () => (
     alignItems="center"
     padding={2}>
     <BoldTypo
-      variant="h2"
+      variant="h3"
       color="textPrimary"
       children="Less plugins, more Minecraft." />
     <BoldTypo
@@ -77,27 +82,28 @@ export const ServersButton = () => (
   </FastTooltip>
 )
 
-export const PluginsButton = () => (
-  <FastTooltip arrow
-    title="Coming soon!">
-    <Box>
-      <FlatFab
-        disabled
-        variant="extended"
-        children={<BoldTypo children="Get Plugins" />} />
-    </Box>
-  </FastTooltip>
-)
+export const PluginsButton = () => {
+  const dialog = useRef<Openable>(null)
 
-export const Buttons = () => {
-  return (
-    <Box display="flex">
-      <ServersButton />
-      <Box width={16} />
-      <PluginsButton />
-    </Box>
-  )
+  return (<>
+    <ThemeProvider theme={Light}>
+      <PluginsDialog
+        ref={dialog} />
+    </ThemeProvider>
+    <FlatFab
+      variant="extended"
+      onClick={() => dialog.current?.open()}
+      children={<BoldTypo children="Get Plugins" />} />
+  </>)
 }
+
+export const Buttons = () => (
+  <Box display="flex">
+    <ServersButton />
+    <Box width={16} />
+    <PluginsButton />
+  </Box>
+)
 
 export const Display = () => (
   <Box
@@ -116,10 +122,10 @@ export const Home = () => {
     <ThemeProvider theme={Dark}>
       <Box
         className="background"
-        minHeight="100vh">
+        minHeight="90vh">
         <Box
           className="blurred"
-          minHeight="100vh"
+          minHeight="90vh"
           display="flex"
           alignItems="center"
           flexDirection="column">

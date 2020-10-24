@@ -1,7 +1,12 @@
-import { Dispatch, MutableRefObject, SetStateAction, useEffect, useState } from "react"
+import { Dispatch, MutableRefObject, RefObject, SetStateAction, useEffect, useState } from "react"
 
 export type State<T> = [T, Dispatch<SetStateAction<T>>]
-export type Ref<T> = ((x: T) => void) | MutableRefObject<T | null> | null
+export type Ref<T> = ((x: T | null) => void) | RefObject<T> | null
+
+export interface Openable {
+  open: () => void
+  close: () => void
+}
 
 export function useStorage<T>(key: string, def: T): State<T> {
   const [state, setState] = useState(() => {

@@ -1,6 +1,6 @@
 import React, { CSSProperties, forwardRef, RefObject } from "react";
 
-import { Card, CardProps, Fab, Tooltip, TooltipProps, Typography, TypographyProps } from "@material-ui/core";
+import { Card, CardProps, Fab, FabProps, Tooltip, TooltipProps, Typography, TypographyProps } from "@material-ui/core";
 import type { Ref } from "./React";
 
 export const BoldTypo = forwardRef((
@@ -31,7 +31,10 @@ export const RoundCard = forwardRef((
   return <Card ref={ref} style={inject} {...other} />
 })
 
-export const FlatFab = forwardRef((props: any, ref: any) => {
+export const FlatFab = forwardRef((
+  props: FabProps,
+  ref: Ref<HTMLButtonElement>
+) => {
   const { style, ...other } = props
 
   const inject: CSSProperties = {
@@ -49,6 +52,5 @@ export const FastTooltip = forwardRef((
   return <Tooltip ref={ref}
     enterDelay={0}
     leaveDelay={0}
-    TransitionProps={{ timeout: 0 }}
     {...props} />
 })

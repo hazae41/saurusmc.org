@@ -4,6 +4,7 @@ import { Avatar, Box, createMuiTheme, CssBaseline, ThemeProvider, Tooltip } from
 import { Dark, Light } from './Themes';
 
 import { Home } from './Home';
+import { BoldTypo } from './Material';
 
 export const App = () => {
 
@@ -11,6 +12,22 @@ export const App = () => {
     <ThemeProvider theme={Light}>
       <CssBaseline />
       <Home />
+      <Presentation />
     </ThemeProvider>
+  )
+}
+
+export const Presentation = () => {
+  return (
+    <Box
+      height="90vh"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center">
+      <BoldTypo
+        variant="h3"
+        children="Coming soon!" />
+    </Box>
   )
 }
