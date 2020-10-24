@@ -3,9 +3,10 @@
   "name": "Saurus",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "square.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
