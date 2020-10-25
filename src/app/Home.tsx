@@ -33,7 +33,7 @@ export const Bar = () => (
     <Box width={8} />
     <FastTooltip arrow title="GitHub">
       <a target="_blank"
-        href="https://github.com/saurusmc">
+        href="https://github.com/saurusmc/create-saurus">
         <FlatFab
           size="medium"
           children={<Avatar src={github} />} />
