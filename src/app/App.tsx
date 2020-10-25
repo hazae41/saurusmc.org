@@ -61,7 +61,7 @@ export const Presentation = () => {
         <Fab
           color="primary"
           variant="extended"
-          children={<BoldTypo children="Learn more" />} />
+          children={<BoldTypo children="Get started" />} />
       </a>
     </Box>
   )
