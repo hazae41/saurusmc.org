@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { Avatar, Box, createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core"
+import { Avatar, Box, createMuiTheme, CssBaseline, ThemeProvider, useMediaQuery, useTheme } from "@material-ui/core"
 import { Dark, Light } from './Themes';
 
 import github from "../assets/github.png"
@@ -51,25 +51,32 @@ export const Bar = () => (
   </Box>
 )
 
-export const Texts = () => (
-  <Box
-    display="flex"
-    flexDirection="column"
-    alignItems="center"
-    padding={2}>
-    <BoldTypo
-      variant="h3"
-      color="textPrimary"
-      children="Less plugins, more Minecraft." />
-    <BoldTypo
-      color="textPrimary"
-      children="Get the best Minecraft experience, mixing plugins and third-party apps for your players." />
-    <BoldTypo
-      color="textPrimary"
-      children="Connect your servers without proxy, and use secure apps to manage them remotely." />
-  </Box>
-)
+export const Texts = () => {
+  const { breakpoints } = useTheme();
+  const sm = useMediaQuery(breakpoints.down('sm'));
 
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      alignItems="center"
+      padding={2}>
+      <BoldTypo
+        variant={sm ? "h3" : "h1"}
+        color="textPrimary"
+        children="Less plugins, more Minecraft." />
+      <BoldTypo
+        variant={sm ? "h6" : "h5"}
+        color="textPrimary"
+        children="Get the best Minecraft experience, mixing plugins and third-party apps for your players." />
+      <BoldTypo
+        variant={sm ? "h6" : "h5"}
+        color="textPrimary"
+        children="Connect your servers without proxy, and use secure apps to manage them remotely." />
+    </Box>
+  )
+}
 export const ServersButton = () => (
   <FastTooltip arrow
     title="Coming soon!">

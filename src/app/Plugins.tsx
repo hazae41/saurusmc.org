@@ -40,8 +40,8 @@ export const PluginsDialog = forwardRef((
   props: {},
   ref: Ref<Openable>
 ) => {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const { breakpoints } = useTheme();
+  const sm = useMediaQuery(breakpoints.down('sm'));
 
   const [opened, setOpened] = useState(false)
   const open = useCallback(() => setOpened(true), [])
@@ -101,7 +101,7 @@ export const PluginsDialog = forwardRef((
       open={opened}
       onClose={close}
       scroll="body"
-      fullScreen={fullScreen}>
+      fullScreen={sm}>
       <Box
         minHeight="90vh"
         padding={2}>
