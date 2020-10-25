@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { Avatar, Box, createMuiTheme, CssBaseline, ThemeProvider, useMediaQuery, useTheme } from "@material-ui/core"
+import { Avatar, Box, createMuiTheme, CssBaseline, Fab, ThemeProvider, Tooltip, Typography, useMediaQuery, useTheme } from "@material-ui/core"
 import { Dark, Light } from './Themes';
 
 import github from "../assets/github.png"
 import discord from "../assets/discord.png"
 import patreon from "../assets/patreon.png"
 
-import { BoldTypo, FastTooltip, FlatFab } from './Material';
+import { BoldTypo } from './Material';
 import type { Openable, Ref } from './React';
 import { PluginsDialog } from './Plugins';
 
@@ -22,32 +22,35 @@ export const Bar = () => (
       color="textPrimary"
       children="Saurus" />
     <Box flex={1} />
-    <FastTooltip arrow title="Discord">
+    <Tooltip arrow title="Discord">
       <a target="_blank"
         href="https://discord.gg/HNgMKvV">
-        <FlatFab
+        <Fab
+          color="inherit"
           size="medium"
           children={<Avatar src={discord} />} />
       </a>
-    </FastTooltip>
+    </Tooltip>
     <Box width={8} />
-    <FastTooltip arrow title="GitHub">
+    <Tooltip arrow title="GitHub">
       <a target="_blank"
         href="https://github.com/saurusmc/create-saurus">
-        <FlatFab
+        <Fab
+          color="inherit"
           size="medium"
           children={<Avatar src={github} />} />
       </a>
-    </FastTooltip>
+    </Tooltip>
     <Box width={8} />
-    <FastTooltip arrow title="Patreon">
+    <Tooltip arrow title="Patreon">
       <a target="_blank"
         href="https://patreon.com/hazae41">
-        <FlatFab
+        <Fab
+          color="inherit"
           size="medium"
           children={<Avatar src={patreon} />} />
       </a>
-    </FastTooltip>
+    </Tooltip>
   </Box>
 )
 
@@ -66,11 +69,11 @@ export const Texts = () => {
         variant={sm ? "h3" : "h1"}
         color="textPrimary"
         children="Less plugins, more Minecraft." />
-      <BoldTypo
+      <Typography
         variant={sm ? "h6" : "h5"}
         color="textPrimary"
         children="Get the best Minecraft experience, mixing plugins and third-party apps for your players." />
-      <BoldTypo
+      <Typography
         variant={sm ? "h6" : "h5"}
         color="textPrimary"
         children="Connect your servers without proxy, and use secure apps to manage them remotely." />
@@ -78,15 +81,15 @@ export const Texts = () => {
   )
 }
 export const ServersButton = () => (
-  <FastTooltip arrow
+  <Tooltip arrow
     title="Coming soon!">
     <Box>
-      <FlatFab
+      <Fab
         disabled
         variant="extended"
         children={<BoldTypo children="Try Saurus" />} />
     </Box>
-  </FastTooltip>
+  </Tooltip>
 )
 
 export const PluginsButton = () => {
@@ -97,7 +100,7 @@ export const PluginsButton = () => {
       <PluginsDialog
         ref={dialog} />
     </ThemeProvider>
-    <FlatFab
+    <Fab
       variant="extended"
       onClick={() => dialog.current?.open()}
       children={<BoldTypo children="Get Plugins" />} />

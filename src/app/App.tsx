@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { Avatar, Box, Button, createMuiTheme, CssBaseline, ThemeProvider, Tooltip, useMediaQuery, useTheme } from "@material-ui/core"
+import { Avatar, Box, Button, createMuiTheme, CssBaseline, Fab, ThemeProvider, Tooltip, Typography, useMediaQuery, useTheme } from "@material-ui/core"
 import { Dark, Light } from './Themes';
 
 import { Home } from './Home';
-import { BoldTypo, FlatFab } from './Material';
+import { BoldTypo } from './Material';
 import { useTyper } from './Typer';
 
 export const App = () => {
@@ -36,22 +36,29 @@ export const Presentation = () => {
       display="flex"
       flexDirection="column"
       justifyContent="center"
-      alignItems="center">
+      alignItems="center"
+      padding={2}>
       <BoldTypo
         variant={sm ? "h4" : "h2"}
         children="Create plugins, fast." />
+      <Typography
+        variant={sm ? "body1" : "h5"}
+        children="Use TypeScript or any other language with WebAssembly." />
+      <Typography
+        variant={sm ? "body1" : "h5"}
+        children="Saurus uses Mutevents, a safe, typed, async event system." />
       <Box
         height="30vh"
         display="flex"
         justifyContent="center"
         alignItems="center">
-        <BoldTypo
+        <Typography
           variant={sm ? "h5" : "h3"}
           children={<pre children={text} />} />
       </Box>
       <a target="_blank"
         href="https://github.com/saurusmc/create-saurus-plugin">
-        <FlatFab
+        <Fab
           color="primary"
           variant="extended"
           children={<BoldTypo children="Learn more" />} />

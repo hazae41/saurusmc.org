@@ -1,7 +1,7 @@
-import { Avatar, Box, Card, CardActionArea, Chip, Dialog, IconButton, InputBase, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, useMediaQuery, useTheme } from "@material-ui/core"
+import { Avatar, Box, Card, CardActionArea, Chip, Dialog, IconButton, InputBase, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, Tooltip, useMediaQuery, useTheme } from "@material-ui/core"
 import { AddOutlined, CloseOutlined, FavoriteOutlined } from "@material-ui/icons"
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useState } from "react"
-import { BoldTypo, FastTooltip } from "./Material"
+import { BoldTypo } from "./Material"
 import type { Openable, Ref, State } from "./React"
 
 import favicon from "../assets/favicon.png"
@@ -213,9 +213,9 @@ export const Plugin = (props: {
           <ListItemAvatar>
             <a target="_blank"
               href="https://github.com/saurusmc">
-              <FastTooltip arrow title="SaurusMC">
+              <Tooltip arrow title="SaurusMC">
                 <Avatar src={favicon} />
-              </FastTooltip>
+              </Tooltip>
             </a>
           </ListItemAvatar>
           <ListItemText
