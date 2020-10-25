@@ -1,14 +1,10 @@
 import { createMuiTheme, Duration } from "@material-ui/core"
 import type { Overrides } from "@material-ui/core/styles/overrides"
+import type { ComponentsProps } from "@material-ui/core/styles/props"
 
-const Quick: Duration = {
-  short: 0,
-  shorter: 0,
-  standard: 0,
-  shortest: 0,
-  complex: 0,
-  enteringScreen: 0,
-  leavingScreen: 0
+const Pretty: ComponentsProps = {
+  MuiButtonBase: { disableRipple: true },
+  MuiTooltip: { interactive: true, enterTouchDelay: 0, leaveTouchDelay: 0 }
 }
 
 const Rounder: Overrides = {
@@ -19,18 +15,14 @@ const Rounder: Overrides = {
 
 export const Light = createMuiTheme({
   overrides: Rounder,
-  transitions: { duration: Quick },
+  props: Pretty,
+  transitions: { create: () => 'none' },
   palette: { type: "light" },
-
 })
 
 export const Dark = createMuiTheme({
   overrides: Rounder,
-  transitions: { duration: Quick },
-  palette: {
-    type: "dark",
-    background: {
-      default: "#000000"
-    }
-  },
+  props: Pretty,
+  transitions: { create: () => 'none' },
+  palette: { type: "dark" },
 })
