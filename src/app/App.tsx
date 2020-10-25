@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import { Avatar, Box, createMuiTheme, CssBaseline, ThemeProvider, Tooltip, useMediaQuery, useTheme } from "@material-ui/core"
+import { Avatar, Box, Button, createMuiTheme, CssBaseline, ThemeProvider, Tooltip, useMediaQuery, useTheme } from "@material-ui/core"
 import { Dark, Light } from './Themes';
 
 import { Home } from './Home';
-import { BoldTypo } from './Material';
+import { BoldTypo, FlatFab } from './Material';
 import { useTyper } from './Typer';
 
 export const App = () => {
@@ -41,7 +41,7 @@ export const Presentation = () => {
         variant={sm ? "h4" : "h2"}
         children="Create plugins, fast." />
       <Box
-        height="50vh"
+        height="30vh"
         display="flex"
         justifyContent="center"
         alignItems="center">
@@ -49,6 +49,13 @@ export const Presentation = () => {
           variant={sm ? "h5" : "h3"}
           children={<pre children={text} />} />
       </Box>
+      <a target="_blank"
+        href="https://github.com/saurusmc/create-saurus-plugin">
+        <FlatFab
+          color="primary"
+          variant="extended"
+          children={<BoldTypo children="Learn more" />} />
+      </a>
     </Box>
   )
 }

@@ -1,4 +1,6 @@
 import { createMuiTheme, Duration } from "@material-ui/core"
+import { cyan, grey, pink, yellow } from "@material-ui/core/colors"
+import type { PaletteOptions } from "@material-ui/core/styles/createPalette"
 import type { Overrides } from "@material-ui/core/styles/overrides"
 import type { ComponentsProps } from "@material-ui/core/styles/props"
 
@@ -17,12 +19,18 @@ export const Light = createMuiTheme({
   overrides: Rounder,
   props: Pretty,
   transitions: { create: () => 'none' },
-  palette: { type: "light" },
+  palette: {
+    type: "light",
+    primary: yellow
+  },
 })
 
 export const Dark = createMuiTheme({
   overrides: Rounder,
   props: Pretty,
   transitions: { create: () => 'none' },
-  palette: { type: "dark" },
+  palette: {
+    type: "dark",
+    primary: yellow
+  },
 })

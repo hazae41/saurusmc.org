@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none; 
+}
+
 .background {
   background: url("./assets/background.png");
   background-size: cover;
