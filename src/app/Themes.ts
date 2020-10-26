@@ -1,4 +1,4 @@
-import { createMuiTheme, Duration } from "@material-ui/core"
+import { createMuiTheme, Duration, unstable_createMuiStrictModeTheme } from "@material-ui/core"
 import { cyan, grey, pink, yellow } from "@material-ui/core/colors"
 import type { Overrides } from "@material-ui/core/styles/overrides"
 import type { ComponentsProps } from "@material-ui/core/styles/props"
@@ -28,7 +28,7 @@ const Rounder: Overrides = {
   }
 }
 
-export const Light = createMuiTheme({
+export const Light = unstable_createMuiStrictModeTheme({
   overrides: Rounder,
   props: Pretty,
   transitions: { create: () => 'none' },
@@ -42,7 +42,7 @@ export const Light = createMuiTheme({
   },
 })
 
-export const Dark = createMuiTheme({
+export const Dark = unstable_createMuiStrictModeTheme({
   overrides: Rounder,
   props: Pretty,
   transitions: { create: () => 'none' },

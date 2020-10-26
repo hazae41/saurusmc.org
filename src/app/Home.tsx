@@ -144,5 +144,6 @@ export const Home = () => {
         </Box>
       </Box>
     </ThemeProvider>
+
   )
 }
