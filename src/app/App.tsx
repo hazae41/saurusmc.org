@@ -9,17 +9,18 @@ import { useTyper } from './Typer';
 
 export const App = () => {
 
-  return (
-    <ThemeProvider theme={Light}>
-      <CssBaseline />
+  return (<>
+    <CssBaseline />
+    <ThemeProvider theme={Dark}>
       <Home />
-      <ThemeProvider theme={Light}>
-        <Presentation1 />
-      </ThemeProvider>
-      <ThemeProvider theme={Dark}>
-        <Presentation2 />
-      </ThemeProvider>
-    </ThemeProvider>)
+    </ThemeProvider>
+    <ThemeProvider theme={Light}>
+      <Presentation1 />
+    </ThemeProvider>
+    <ThemeProvider theme={Dark}>
+      <Presentation2 />
+    </ThemeProvider>
+  </>)
 }
 
 
@@ -98,7 +99,7 @@ export const Presentation2 = () => {
       <Typography
         color="textPrimary"
         variant={sm ? "body1" : "h5"}
-        children="Use WebSockets over HTTPS, with strict player authentication." />
+        children="Use apps with WebSockets over HTTPS, with strict player authentication." />
       <Box
         height="20vh"
         display="flex"

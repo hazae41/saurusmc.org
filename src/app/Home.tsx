@@ -129,21 +129,18 @@ export const Display = () => (
 
 export const Home = () => {
   return (
-    <ThemeProvider theme={Dark}>
+    <Box
+      className="background"
+      minHeight="90vh">
       <Box
-        className="background"
-        minHeight="90vh">
-        <Box
-          className="blurred"
-          minHeight="90vh"
-          display="flex"
-          alignItems="center"
-          flexDirection="column">
-          <Bar />
-          <Display />
-        </Box>
+        className="blurred"
+        minHeight="90vh"
+        display="flex"
+        alignItems="center"
+        flexDirection="column">
+        <Bar />
+        <Display />
       </Box>
-    </ThemeProvider>
-
+    </Box>
   )
 }
