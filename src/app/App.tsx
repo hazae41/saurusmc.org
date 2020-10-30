@@ -9,18 +9,19 @@ import { useTyper } from './Typer';
 
 export const App = () => {
 
-  return (<>
-    <CssBaseline />
-    <ThemeProvider theme={Dark}>
-      <Home />
-    </ThemeProvider>
+  return (
     <ThemeProvider theme={Light}>
-      <Presentation1 />
-    </ThemeProvider>
-    <ThemeProvider theme={Dark}>
-      <Presentation2 />
-    </ThemeProvider>
-  </>)
+      <CssBaseline />
+      <ThemeProvider theme={Dark}>
+        <Home />
+      </ThemeProvider>
+      <ThemeProvider theme={Light}>
+        <Presentation1 />
+      </ThemeProvider>
+      <ThemeProvider theme={Dark}>
+        <Presentation2 />
+      </ThemeProvider>
+    </ThemeProvider>)
 }
 
 
