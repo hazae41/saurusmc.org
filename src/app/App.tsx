@@ -123,22 +123,18 @@ export const Presentation2 = () => {
         <AppIcon
           size={appIconSize}
           name="Steve"
-          url="https://pinger.netlify.app/"
-          icon="https://pinger.netlify.app/favicon.png" />
+          icon="https://crafatar.com/avatars/8667ba71b85a4004af54457a9734eed7" />
         <AppIcon
           size={appIconSize}
           name="Hazae41"
-          url="https://pinger.netlify.app/"
           icon="https://crafatar.com/avatars/9d39e41a069942a1bdd2fc4f747acc72" />
         <AppIcon
           size={appIconSize}
           name="Notch"
-          url="https://pinger.netlify.app/"
           icon="https://crafatar.com/avatars/069a79f444e94726a5befca90e38aaf5" />
         <AppIcon
           size={appIconSize}
           name="md_5"
-          url="https://pinger.netlify.app/"
           icon="https://crafatar.com/avatars/af74a02d19cb445bb07f6866a861f783" />
       </Box>
     </Box>
@@ -147,7 +143,7 @@ export const Presentation2 = () => {
 
 export const AppIcon = (props: {
   name: string
-  url: string
+  url?: string
   icon: string
   size: number
 }) => {
@@ -168,7 +164,7 @@ export const AppIcon = (props: {
       <CardActionArea
         style={{ width: size }}
         target="_blank"
-        href={url}>
+        href={url ?? ""}>
         <Avatar
           variant="square"
           style={avatarStyle}
